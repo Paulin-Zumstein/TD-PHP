@@ -6,7 +6,6 @@
     </head>
    
     <body>
-        Voici le résultat du script PHP : 
         <?php
          require_once('Voiture.php');
 
