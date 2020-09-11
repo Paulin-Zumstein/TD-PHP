@@ -31,7 +31,7 @@ class Voiture {
        if (strlen($immatriculation2)==8){
           $this->immatriculation = $immatriculation2;     
         }
-        else { echo "L'immatriculation n'a pas le bon nombre de chiffres"}
+        else { echo "L'immatriculation n'a pas le bon nombre de chiffres"; }
   }
       
   // un constructeur
@@ -45,13 +45,13 @@ class Voiture {
   public function afficher() {
     echo "<h1>Liste des voitures</h1>";
           echo "<ol>";
-          if (empty($Voiture)) {
+          if (empty($this)) {
             echo "pas voitures";
           }
-          foreach ($Voiture as $key => $value) {
+          foreach ($this as $key => $value) {
             echo "<li>$key : $value </li>";
           }
-          echo "</ol>"
+          echo "</ol>";
   }
 }
 ?>
