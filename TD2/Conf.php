@@ -1,5 +1,7 @@
 <?php
 class Conf {
+
+  static private $debug = True; 
    
   static private $databases = array(
     // Le nom d'hote est webinfo a l'IUT
@@ -34,6 +36,11 @@ class Conf {
   static public function getPassword() {
     //en PHP l'indice d'un tableau n'est pas forcement un chiffre.
     return self::$databases['password'];
+  }
+  // la variable debug est un boolean
+    
+  static public function getDebug() {
+    return self::$debug;
   }
 }
 ?>

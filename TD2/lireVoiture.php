@@ -10,21 +10,16 @@
         
         <?php
         require "Model.php";
-        $rep = (Model::$pdo)->query("SELECT * FROM `voiture` WHERE 1");
-        $tab_obj = $rep->fetchAll(PDO::FETCH_OBJ);
+        require_once "Voiture.php";
 
-        //var_dump($tab_obj);
-        foreach ($tab_obj as $obj){
-            foreach ($obj as $attribut) {
-                echo "$attribut\n";
-            }
 
+        $tab_voit = Voiture::getAllVoitures();
+        foreach ($tab_voit as $obj){
+            $obj->afficher();
         }
 
 
+
         ?>
-
-
-
     </body>
 </html>
