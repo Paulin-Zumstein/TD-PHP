@@ -89,10 +89,27 @@ class Voiture {
     // On récupère les résultats comme précédemment
     $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
     $tab_voit = $req_prep->fetchAll();
-    // Attention, si il n'y a pas de résultats, on renvoie false
+    // Attention, si il n'y a pas depublic_html/TD-PHP/TD3/lireVoiture.php résultats, on renvoie false
     if (empty($tab_voit))
         return false;
     return $tab_voit[0];
+}
+
+public function save() {
+    try{
+        $imm = $this->immatriculation;
+        $mar = $this->marque;
+        $cou = $this->couleur;
+        (Model::$pdo)->query("INSERT INTO voiture (immatriculation, marque, couleur) VALUES ('$imm', '$mar','$cou')");
+    } catch (PDOException $e) {
+        if (Conf::getDebug()) {
+            echo $e->getMessage(); // affiche un message d'erreur
+        } 
+        else {
+            echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+        }
+        die();
+        }
 }
 
 }

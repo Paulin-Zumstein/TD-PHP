@@ -25,18 +25,16 @@ foreach ($tab_voit as $value) {
 	echo "</br>";
 }
 */
+/*
 foreach (Voiture::getAllVoitures() as $value) {
 	/*echo ($value->afficher());*/
-        echo (Voiture::getVoitureByImmat($value->getImma()));
+        /*echo (Voiture::getVoitureByImmat($value->getImma()));
 	echo "<br>"; 
-}
+}*/
 
-
-
-
-
-
-
+ $v = new Voiture("4326554v","REna","Blrrrre");
+ $v->save();
+/*voitueee'*/
 
 /* 
  * To change this license header, choose License Headers in Project Properties.
