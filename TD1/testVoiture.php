@@ -2,15 +2,22 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title> Mon premier php </title>
+        <title> test de voiture </title>
     </head>
    
     <body>
+        
         <?php
-         require_once('Voiture.php');
+        require_once('Voiture.php'); 
+        $voiture1  = new Voiture('ferrari','rouge','78DZBG');
+        $voiture1->afficher();
 
-         $voiture1 = new Voiture("m","c","i");
-         $voiture1->afficher();
+
+
+
+
+
+
         ?>
     </body>
 </html> 

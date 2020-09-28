@@ -26,9 +26,12 @@ foreach ($tab_voit as $value) {
 }
 */
 foreach (Voiture::getAllVoitures() as $value) {
-	echo ($value->afficher());
-	echo "<br>";
+	/*echo ($value->afficher());*/
+        echo (Voiture::getVoitureByImmat($value->getImma()));
+	echo "<br>"; 
 }
+
+
 
 
 
