@@ -97,10 +97,14 @@ class Voiture {
 
 public function save() {
     try{
-        $imm = $this->immatriculation;
-        $mar = $this->marque;
-        $cou = $this->couleur;
-        (Model::$pdo)->query("INSERT INTO voiture (immatriculation, marque, couleur) VALUES ('$imm', '$mar','$cou')");
+        $sql = "INSERT INTO voiture (immatriculation, marque, couleur) VALUES (:imma, :marq, :coul)";
+        $req_prep = Model::$pdo->prepare($sql);
+        $values = array(
+            "imma" => $this->getImma(),
+            "marq" => $this->getMarque(),
+            "coul" => $this->getCouleur(),
+        );
+        $req_prep->execute($values);
     } catch (PDOException $e) {
         if (Conf::getDebug()) {
             echo $e->getMessage(); // affiche un message d'erreur

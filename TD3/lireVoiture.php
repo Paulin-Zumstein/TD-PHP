@@ -32,7 +32,7 @@ foreach (Voiture::getAllVoitures() as $value) {
 	echo "<br>"; 
 }*/
 
- $v = new Voiture("4326554v","REna","Blrrrre");
+ $v = new Voiture("64445423","POLO","Vert");
  $v->save();
 /*voitueee'*/
 
