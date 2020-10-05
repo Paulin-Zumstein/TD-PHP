@@ -65,9 +65,7 @@ class Trajet {
         try {
             $sql = "SELECT * FROM utilisateur
                 JOIN passager ON passager.utilisateur_login=utilisateur.login
-                JOIN trajet ON trajet.id=passager.trajet_id
-                JOIN utilisateur U ON U.login=trajet.conducteur_login
-                WHERE trajet.id=:id";
+                WHERE passager.trajet_id=:id_tag";
             // Préparation de la requête
             $req_prep = Model::$pdo->prepare($sql);
             $values = array(
@@ -81,7 +79,7 @@ class Trajet {
                 echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
             }
             die();
-            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
             $tab_users = $req_prep->fetchAll();
             return $tab_users;
             // Attention, si il n'y a pas de résultats, on renvoie false
