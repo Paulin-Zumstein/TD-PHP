@@ -63,15 +63,23 @@ class Trajet {
     
     public static function findPassagers($id) {
         try {
-            $sql = "SELECT * FROM utilisateur
-                JOIN passager ON passager.utilisateur_login=utilisateur.login
-                WHERE passager.trajet_id=:id_tag";
-            // Préparation de la requête
+            $sql = "SELECT * FROM Passager
+                    JOIN Utilisateur ON
+                    Utilisateur.login = Passager.utilisateur_login
+                    WHERE trajet_id=:id_pass";
             $req_prep = Model::$pdo->prepare($sql);
             $values = array(
-                "id_tag" => $id
+                "id_pass" => $id,
             );
             $req_prep->execute($values);
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+            $tab_info = $req_prep->fetchAll();
+            if (empty($tab_info)){
+                return false;
+            }
+            else{
+                return $tab_info;
+            }
         } catch (PDOException $e) {
             if (Conf::getDebug()) {
                 echo $e->getMessage(); // affiche un message d'erreur
@@ -79,7 +87,7 @@ class Trajet {
                 echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
             }
             die();
-            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Utilisateur');
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'Voiture');
             $tab_users = $req_prep->fetchAll();
             return $tab_users;
             // Attention, si il n'y a pas de résultats, on renvoie false

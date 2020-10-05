@@ -4,8 +4,10 @@ require_once 'Voiture.php';
 require_once 'Trajet.php';
 
 Model::Init();
-foreach (Trajet::findPassagers(764) as $value){
-    $value->afficher();
+
+foreach(Trajet::findPassagers($_GET['trajet_id']) as $value) {
+	echo $value->afficher();
+    echo "<br>";
 }
 
 /* 
