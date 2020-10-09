@@ -63,9 +63,9 @@ class Trajet {
     
     public static function findPassagers($id) {
         try {
-            $sql = "SELECT * FROM Passager
-                    JOIN Utilisateur ON
-                    Utilisateur.login = Passager.utilisateur_login
+            $sql = "SELECT * FROM passager
+                    JOIN utilisateur ON
+                    utilisateur.login = passager.utilisateur_login
                     WHERE trajet_id=:id_pass";
             $req_prep = Model::$pdo->prepare($sql);
             $values = array(
