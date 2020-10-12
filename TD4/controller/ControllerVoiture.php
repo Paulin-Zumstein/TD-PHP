@@ -7,9 +7,14 @@ class ControllerVoiture {
     }
     
     public static function read(){
-        $immat=$_GET['immatriculation'];
+        $immat=$_GET['immat'];
         $v = ModelVoiture::getVoitureByImmat($immat);
-        require ('../view/voiture/detail.php');
+        if($v==null){
+            require '../view/voiture/error.php';
+        } 
+        else {
+            require ('../view/voiture/detail.php');
+        }
     }
 }
 ?>
