@@ -7,7 +7,7 @@ class ControllerVoiture {
     }
     
     public static function read(){
-        $immat=$_GET['immat'];
+        $immat=$_GET['immatriculation'];
         $v = ModelVoiture::getVoitureByImmat($immat);
         if($v==null){
             require '../view/voiture/error.php';
@@ -15,6 +15,20 @@ class ControllerVoiture {
         else {
             require ('../view/voiture/detail.php');
         }
+    }
+    
+    public static function create(){
+        require '../view/voiture/create.php';
+    }
+    
+    public static function created(){
+        $immat=$_GET['immatriculation'];
+        $marq=$_GET['marque'];
+        $coul=$_GET['couleur'];
+        
+        $mVoiture = new ModelVoiture($marq,$coul,$immat);
+        $mVoiture->save();
+        ControllerVoiture::readAll();
     }
 }
 ?>
