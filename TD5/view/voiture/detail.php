@@ -6,9 +6,9 @@
     </head>
     <body>
         <?php
-        echo "<li> Marque : " . $v->getMarque() . "</li>" .
-        "<li> Couleur : " . $v->getCouleur() . "</li>" .
-        "<li> Immatriculation : " . $v->getImmatriculation() . "</li>";
+        echo "<li> Marque : " . htmlspecialchars($v->getMarque()) . "</li>" .
+        "<li> Couleur : " . htmlspecialchars($v->getCouleur()) . "</li>" .
+        "<li> Immatriculation : " . htmlspecialchars($v->getImmatriculation()) . "</li>";
         ?>
     </body>
 </html>
