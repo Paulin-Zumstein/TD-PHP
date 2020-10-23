@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title> forumu PHP</title>
-    </head>
-   
-    <body>
+
 		<form method="get" action="index.php">
 		  <fieldset>
 		    <legend>Mon formulaire :</legend>
@@ -27,7 +20,3 @@
 		    </p>
 		  </fieldset> 
 		</form>
-
-
-    </body>
-</html> 
