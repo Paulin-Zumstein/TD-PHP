@@ -43,7 +43,12 @@ class ControllerVoiture {
         
         $mVoiture = new ModelVoiture($marq,$coul,$immat);
         $mVoiture->save();
-        ControllerVoiture::readAll();
+        
+        $tab_v = ModelVoiture::getAllVoitures();
+        $controller=('voiture');
+        $view='created';
+        $pagetitle='Liste des voitures';
+        require (File::build_path(array("view", "view.php")));
     }
 }
 ?>
